@@ -1,0 +1,5 @@
+console
+db:migrate
+db:seed
+greeting:hello
+greeting:hola
