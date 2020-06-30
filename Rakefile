@@ -1,3 +1,7 @@
+task :environment do
+  require_relative './config/environment'
+end
+
 namespace :greeting do
   desc 'outputs hello to the terminal'
   task :hello do
@@ -16,12 +20,13 @@ namespace :db do
     Student.create_table
   end
 
-  task :environment do
-    require_relative './config/environment'
-  end
-
   desc 'see the database with some dummy data'
   task :seed do
     require_relative './db/seeds.rb'
   end
+end
+
+desc 'drop into the Prty console'
+task :console => :environment do
+  Pry.start
 end
